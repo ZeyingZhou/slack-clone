@@ -61,7 +61,6 @@ export const CreateWorkspaceModal = () => {
                     </Button>
                 </div>
                 </form>
-           
             </DialogContent>
         </Dialog>  
     );
