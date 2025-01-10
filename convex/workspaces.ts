@@ -1,6 +1,7 @@
 import { v } from "convex/values";
 import {mutation, query} from "./_generated/server";
 import { auth } from "./auth";
+import { ConvexError } from "convex/values";
 
 const generateCode = () => {
     const code = Array.from(

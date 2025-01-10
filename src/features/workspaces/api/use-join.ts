@@ -14,7 +14,6 @@ type Options = {
     throwError?: boolean;
 };
 
-
 export const useJoin = () => {
     const [data, setData] = useState<ResponseType>(null);
     const [error, setError] = useState<Error | null>(null);
@@ -39,6 +38,8 @@ export const useJoin = () => {
         } catch(error) {
             setStatus("error");
             options?.onError?.(error as Error);
+            setError(error as Error);
+            
             if(options?.throwError) {
                 throw error;
             }
