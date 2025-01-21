@@ -68,7 +68,6 @@ const getMember = async (
             q.eq("workspaceId", workspaceId).eq("userId",userId)
         )
         .unique()
-
 }
 
 export const remove = mutation({
