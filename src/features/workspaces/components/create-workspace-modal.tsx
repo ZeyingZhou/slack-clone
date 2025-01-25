@@ -1,6 +1,7 @@
 import {
     Dialog,
     DialogContent,
+    DialogDescription,
     DialogHeader,
     DialogTitle
 } from "@/components/ui/dialog";
@@ -22,8 +23,8 @@ export const CreateWorkspaceModal = () => {
     const { mutate, isPending } = useCreateWorkspace();
 
     const handleClose = () => {
-        setOpen(false);
         setName("");
+        setOpen(false);
     };
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -45,21 +46,24 @@ export const CreateWorkspaceModal = () => {
                 <DialogHeader>
                     <DialogTitle>Add a workspace</DialogTitle>
                 </DialogHeader>
+                <DialogDescription>
+                        Create a new workspace to organize your projects. Workspace names must be at least 3 characters long.
+                </DialogDescription>
                 <form onSubmit={handleSubmit} className="space-y-4">
                     <Input
                         value={name}
                         onChange={(e) => setName(e.target.value)}
-                        disabled={false}
+                        disabled={isPending}
                         required
                         autoFocus
                         minLength={3}
                         placeholder="Workspace name e.g. 'Work', 'Personal', 'Home'"
                     />
                     <div className="flex justify-end">
-                    <Button disabled={false}>
-                        Create
-                    </Button>
-                </div>
+                        <Button disabled={isPending}>
+                            Create
+                        </Button>
+                    </div>
                 </form>
             </DialogContent>
         </Dialog>  

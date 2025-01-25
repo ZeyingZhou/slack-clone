@@ -7,11 +7,11 @@ import {
     DialogHeader,
     DialogTitle,
     DialogTrigger,
+    DialogClose
 } from "@/components/ui/dialog"
 import { useWorkspaceId } from "@/hooks/use-workspace-id";
 import { CopyIcon, RefreshCcw } from "lucide-react";
 import { useNewJoinCode } from "@/features/workspaces/api/use-new-join-code";
-import { DialogClose } from "@radix-ui/react-dialog";
 import { useConfirm } from "@/hooks/use-confirm";
   
 interface InviteModalProps {

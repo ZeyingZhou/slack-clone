@@ -8,16 +8,17 @@ import {
     DialogHeader,
     DialogTitle,
     DialogTrigger,
+    DialogClose
 } from "@/components/ui/dialog"
 import { useUpdateWorkspace } from "@/features/workspaces/api/use-update-workspace";
 import { useRemoveWorkspace } from "@/features/workspaces/api/use-remove-workspace";
 import { Input } from "@/components/ui/input";
-import { DialogClose } from "@radix-ui/react-dialog";
 import { Button } from "@/components/ui/button";
 import { useWorkspaceId } from "@/hooks/use-workspace-id";
 import { toast } from "sonner";
 import { useRouter } from "next/navigation";
 import { useConfirm } from "@/hooks/use-confirm";
+import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
 
 interface PreferencesModalProps {
     open: boolean;
@@ -87,6 +88,9 @@ export const PreferencesModal = ({
                         <DialogTitle>
                             {value}
                         </DialogTitle>
+                        <DialogDescription>
+                            Edit or Delete the Workspace
+                        </DialogDescription>
                     </DialogHeader>
                     <div className="px-4 pb-4 flex flex-col gap-y-2">
                         <Dialog open={editOpen} onOpenChange={setEditOpen}>
@@ -110,6 +114,11 @@ export const PreferencesModal = ({
                                     <DialogTitle>
                                         Rename this workspace
                                     </DialogTitle>
+                                    <VisuallyHidden>
+                                        <DialogDescription>
+                                            Edit Workspace
+                                        </DialogDescription>
+                                    </VisuallyHidden>
                                 </DialogHeader>
                                 <form className="space-y-4" onSubmit={handleEdit}>
                                     <Input

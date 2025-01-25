@@ -2,7 +2,7 @@ import {atom, useAtom} from "jotai";
 
 const modalState = atom(false);
 
-export const useCreateWorkspaceModal = () => {
+export const useInviteWorkspaceModal = () => {
     const [isOpen, setIsOpen] = useAtom(modalState);
     const safeSetOpen = (open: boolean) => {
         // Ensure state update doesn't block event propagation

@@ -3,7 +3,7 @@ import { Id } from "../../../../convex/_generated/dataModel";
 import { useGetMember } from "../api/use-get-member";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { AlertTriangle, ChevronDownIcon, Loader, MailIcon, XIcon } from "lucide-react";
-import { Separator } from "@radix-ui/react-dropdown-menu";
+import { Separator } from "@/components/ui/separator";
 import Link from "next/link";
 import { useUpdateMember } from "../api/use-update-member";
 import { useRemoveMember } from "../api/use-remove-member";
@@ -18,7 +18,8 @@ import {
     DropdownMenuRadioGroup,
     DropdownMenuRadioItem,
     DropdownMenuTrigger,
-  } from "@/components/ui/dropdown-menu"
+
+} from "@/components/ui/dropdown-menu"
   
 
 interface ProfileProps {

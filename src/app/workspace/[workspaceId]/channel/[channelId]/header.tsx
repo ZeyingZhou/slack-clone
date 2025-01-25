@@ -22,6 +22,7 @@ import { useConfirm } from "@/hooks/use-confirm";
 import { useRouter } from "next/navigation";
 import { useWorkspaceId } from "@/hooks/use-workspace-id";
 import { useCurrentMember } from "@/features/members/api/use-current-member";
+import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
   
 
 interface HeaderProps {
@@ -103,6 +104,11 @@ export const Header = ({ title }: HeaderProps) => {
                         <DialogTitle>
                             # {title}
                         </DialogTitle>
+                        <VisuallyHidden>
+                            <DialogDescription>
+                                Channel details and management options
+                            </DialogDescription>
+                        </VisuallyHidden>
                     </DialogHeader>
                     <div className="px-4 pb-4 flex flex-col gap-y-2">
                         <Dialog open={editOpen} onOpenChange={handleEditOpen}>
@@ -122,6 +128,11 @@ export const Header = ({ title }: HeaderProps) => {
                             <DialogContent>
                                 <DialogHeader>
                                     <DialogTitle>Rename this channel</DialogTitle>
+                                    <VisuallyHidden>
+                                        <DialogDescription>
+                                            Rename this channel name must between 3 and 80
+                                        </DialogDescription>
+                                    </VisuallyHidden>
                                 </DialogHeader>
                                 <form onSubmit={handleSubmit} className="space-y-4">
                                     <Input

@@ -13,6 +13,8 @@ import { ChevronDownIcon, ListFilter, SquarePen } from "lucide-react"
 import { PreferencesModal } from "./preferences-modal"
 import { useState } from "react"
 import { InviteModal } from "./invite-modal"
+import { useInviteWorkspaceModal } from "@/features/workspaces/store/use-invite-workspace-modal"
+import { useEditOrDeleteWorkspaceModal } from "@/features/workspaces/store/use-edit-or-delete-workspace-modal"
   
 interface WorkspaceHeaderProps {
     workspace: Doc<"workspaces">;
@@ -20,8 +22,8 @@ interface WorkspaceHeaderProps {
 }
 
 export const WorkspaceHeader = ({ workspace, isAdmin } : WorkspaceHeaderProps) => {
-    const [inviteOpen, setInviteOpen] = useState(false);
-    const [preferencesOpen, setPreferencesOpen] = useState(false);
+    const [inviteOpen, setInviteOpen] = useInviteWorkspaceModal();
+    const [preferencesOpen, setPreferencesOpen] = useEditOrDeleteWorkspaceModal();
 
     return (
         <>

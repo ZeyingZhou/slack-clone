@@ -55,6 +55,9 @@ export const CreateChannelModal = () => {
             <DialogContent>
                 <DialogHeader>
                     <DialogTitle>Add a channel</DialogTitle>
+                    <DialogDescription>
+                        Create a new channel for your workspace. Channel names must be 3-80 characters long.
+                    </DialogDescription>
                 </DialogHeader>
                 <form onSubmit={handleSubmit} className="space-y-4">
                     <Input 

@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import { VisuallyHidden } from '@radix-ui/react-visually-hidden';
 import { useGetWorkspace } from "@/features/workspaces/api/use-get-workspace";
 import { useWorkspaceId } from "@/hooks/use-workspace-id";
 import { Info, Search } from "lucide-react";
@@ -18,6 +19,7 @@ import { useGetChannels } from "@/features/channels/api/use-get-channels";
 import { useGetMembers } from "@/features/members/api/use-get-members";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { DialogTitle } from "@/components/ui/dialog";
   
 
 export const Toolbar = () => {
@@ -48,6 +50,9 @@ export const Toolbar = () => {
                     </span>
                 </Button>
                 <CommandDialog open={open} onOpenChange={setOpen}>
+                    <VisuallyHidden>
+                        <DialogTitle>Search Bar</DialogTitle>
+                    </VisuallyHidden>
                     <CommandInput placeholder="Type a command or search..." />
                         <CommandList>
                             <CommandEmpty>No results found.</CommandEmpty>
