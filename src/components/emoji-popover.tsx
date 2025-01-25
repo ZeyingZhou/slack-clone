@@ -1,5 +1,4 @@
 import EmojiPicker, { EmojiClickData } from "emoji-picker-react";
-import data from "@emoji-mart/data";
 
 import {
     Popover,
